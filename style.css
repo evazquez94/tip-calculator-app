@@ -1,0 +1,132 @@
+:root {
+  /* Primary */
+  --strong-cyan: hsl(172, 67%, 45%);
+  /* Neutral */
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --darker-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --lighter-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-grayish-cyan);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: 13px;
+  /* border: red solid; */
+  width: 100px;
+  text-align: center;
+  color: var(--darker-grayish-cyan);
+}
+
+body h1:nth-child(2) {
+  margin-bottom: 50px;
+}
+
+.container {
+  background-color: var(--white);
+  width: 50%;
+  border-radius: 15px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+}
+
+.options-container {
+  /* border: red solid; */
+}
+
+.options-container p {
+  margin-bottom: 10px;
+  color: var(--darker-grayish-cyan);
+}
+
+input {
+  margin-bottom: 20px;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  background-color: var(--lighter-grayish-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.grid-container {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;  
+}
+
+.item {
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--very-dark-cyan);
+  border-radius: 5px;
+  padding: 10px 3px 10px 3px;  
+  font-size: 24px;
+  text-align: center;
+}
+
+.output-container {
+  /* border: green solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--very-dark-cyan);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.flex-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount-letters p {
+  margin: 0;
+  color: var(--white)
+} 
+
+.amount-letters p:nth-child(2) {
+  color: var(--dark-grayish-cyan);
+} 
+
+.amount-numbers {
+  color: var(--strong-cyan);
+  font-size: 50px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  color: var(--very-dark-cyan);
+  background-color: var(--strong-cyan);  
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+}
