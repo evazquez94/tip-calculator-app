@@ -20,16 +20,16 @@
   <div class="container">
     <div class="options-container">
       <p>Bill</p>      
-      <input type="number" placeholder="0" id="inputBill">
+      <input  placeholder="0" id="inputBill">
                 
       <p>Select Tip %</p>
       <div class="grid-container">
-        <div class="item" value="5">5%</div>
-        <div class="item" value="10">10%</div>
-        <div class="item" value="15">15%</div>
-        <div class="item" value="25">25%</div>
-        <div class="item" value="50">50%</div>
-        <div class="item">Custom</div>      
+        <button class="item" value="5">5%</button>
+        <button class="item" value="10">10%</button>
+        <button class="item" value="15">15%</button>
+        <button class="item" value="25">25%</button>
+        <button class="item" value="50">50%</button>          
+        <input type="number" placeholder="Custom" class="custom-input">
       </div>
 
       <p>Number of People</p>            
@@ -44,8 +44,9 @@
             <p>/ person</p>          
           </div>
 
-          <div class="amount-numbers" id="tipAmount">
-            12
+          <div class="amount-numbers">            
+            <!-- <img src="./images/icon-dollar.svg" alt=""> -->
+            <p id="tipAmount">0.00</p>            
           </div>
         </div>
 
@@ -56,7 +57,7 @@
           </div>
 
           <div class="amount-numbers" id="total">
-            12
+            <p id="tipAmount">0.00</p>
           </div>
         </div>
       </div>  

@@ -16,6 +16,7 @@ html {
   padding: 0;
   background-color: var(--light-grayish-cyan);
   font-family: 'Space Mono', monospace;
+  font-weight: 700;
 }
 
 *,
@@ -32,15 +33,6 @@ body {
   height: 100vh;
 }
 
-h1 {
-  margin: 0;
-  letter-spacing: 13px;
-  /* border: red solid; */
-  width: 100px;
-  text-align: center;
-  color: var(--darker-grayish-cyan);
-}
-
 body img:nth-child(1) {
   margin-bottom: 50px;
 }
@@ -53,10 +45,6 @@ body img:nth-child(1) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 25px;
-}
-
-.options-container {
-  /* border: red solid; */
 }
 
 .options-container p {
@@ -103,6 +91,30 @@ input:focus {
   box-shadow: 0 0 0 2px var(--strong-cyan);
 }
 
+.custom-input {
+  margin: 0;
+  color: var(--very-dark-cyan);
+  background-image: none;
+}
+
+/* Center only the placeholder in the custom input */
+
+.custom-input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.custom-input:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+.custom-input::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+.custom-input:-ms-input-placeholder {  
+  text-align: center; 
+}
+
 .grid-container {
   margin-bottom: 20px;
   display: grid;
@@ -118,10 +130,15 @@ input:focus {
   padding: 10px 3px 10px 3px;  
   font-size: 24px;
   text-align: center;
+  transition: 0.2s;
 }
 
-.output-container {
-  /* border: green solid; */
+.item:hover {  
+  color: var(--very-dark-cyan);
+  background-color: var(--light-grayish-cyan);
+}
+
+.output-container {  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -134,6 +151,7 @@ input:focus {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .amount-letters p {
@@ -146,8 +164,18 @@ input:focus {
 } 
 
 .amount-numbers {
+  display: flex;   
+}
+
+/* .amount-numbers img {
+  font-size: 24px;
+} */
+
+.amount-numbers p { 
   color: var(--strong-cyan);
   font-size: 50px;
+  margin-top: -15px;
+  vertical-align: text-top;
 }
 
 button {
@@ -158,4 +186,12 @@ button {
   font-size: 20px;
   border: none;
   border-radius: 5px;
+  transition: 0.2s;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+
+button:hover {  
+  color: var(--very-dark-cyan);
+  background-color: var(--light-grayish-cyan);
 }

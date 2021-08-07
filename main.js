@@ -1,16 +1,16 @@
-// let inputBill = document.getElementById('inputBill');
-// inputBill.addEventListener('input', changeHandler);
+// let inputCustomTip = document.getElementById('inputCustomTip');
+// inputCustomTip.addEventListener('input', changeHandler);
 // function changeHandler() {
-//   bill = this.value;  
+//   tip = this.value;  
 // }
 
 let buttonPercent = document.getElementsByClassName('item');
 
 for(let i = 0; i < buttonPercent.length; i++) {
-  buttonPercent[i].onclick = buttonHandler;
+  buttonPercent[i].onclick = computeTip;
 }
 
-function buttonHandler() {
+function computeTip() {
   let bill = document.getElementById('inputBill').value;
   let amountPersons = document.getElementById('inputPersons').value;
   // let tipPercent = this.getAttribute('value') / 100;
