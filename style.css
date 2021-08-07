@@ -15,6 +15,7 @@ html {
   margin: 0;
   padding: 0;
   background-color: var(--light-grayish-cyan);
+  font-family: 'Space Mono', monospace;
 }
 
 *,
@@ -40,7 +41,7 @@ h1 {
   color: var(--darker-grayish-cyan);
 }
 
-body h1:nth-child(2) {
+body img:nth-child(1) {
   margin-bottom: 50px;
 }
 
@@ -63,15 +64,43 @@ body h1:nth-child(2) {
   color: var(--darker-grayish-cyan);
 }
 
+/* Eliminate arrows in input field */
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 input {
   margin-bottom: 20px;
   font-size: 24px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 100%;
   border: none;
   background-color: var(--lighter-grayish-cyan);
   color: var(--very-dark-cyan);
+  text-align: right;
+  background-image: url("./images/icon-person.svg");
+  background-repeat:no-repeat;
+  background-position: 15px 15px;
+  caret-color: transparent;
+  outline: none;  
+}
+
+.options-container input:nth-child(2) {
+  background-image: url("./images/icon-dollar.svg");
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px var(--strong-cyan);
 }
 
 .grid-container {
