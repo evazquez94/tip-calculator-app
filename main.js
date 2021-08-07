@@ -4,22 +4,39 @@
 //   tip = this.value;  
 // }
 
-let buttonPercent = document.getElementsByClassName('item');
+let buttonPercentArr = document.getElementsByName('item');
+let tipAmountTag = document.getElementById('tipAmount');
+let totalTag = document.getElementById('total');
 
-for(let i = 0; i < buttonPercent.length; i++) {
-  buttonPercent[i].onclick = computeTip;
+for(let i = 0; i < buttonPercentArr.length; i++) {
+  buttonPercentArr[i].onclick = handleTipClick;
 }
 
-function computeTip() {
+function handleTipClick() {
+  if (this.className == 'button-clicked') {
+    this.className = 'item';
+    tipAmountTag.innerHTML = '0.00';
+    totalTag.innerHTML = '0.00'; 
+  } else {
+    // Map function instead of for loop?
+    for(let i = 0; i < buttonPercentArr.length; i++) {    
+      buttonPercentArr[i].className = 'item';
+    }
+    this.className = 'button-clicked';
+    computeTip(this.value);
+  }
+}
+
+function computeTip(percent = 0) {  
   let bill = document.getElementById('inputBill').value;
   let amountPersons = document.getElementById('inputPersons').value;
-  // let tipPercent = this.getAttribute('value') / 100;
-  // let tipTotal = bill * tipPercent
-  
-  let tipAmount = document.getElementById('tipAmount');
-  let total = document.getElementById('total');
 
-  // tipAmount.innerHTML = "Lola";
-  // total.innerHTML = "Lalo";
-  
+  let tipPercent = percent / 100;
+  let tipAmount = bill/amountPersons * tipPercent;
+  let tipTotal = bill/amountPersons + tipAmount;
+
+  tipAmount = +tipAmount.toFixed(2);
+  tipTotal = +tipTotal.toFixed(2);
+  tipAmountTag.innerHTML = tipAmount;
+  totalTag.innerHTML = tipTotal; 
 }
