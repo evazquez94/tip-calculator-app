@@ -41,7 +41,7 @@ body img:nth-child(1) {
 
 .container {
   background-color: var(--white);
-  width: 50%;
+  width: 65%;
   border-radius: 15px;
   padding: 25px;
   display: grid;
@@ -69,7 +69,7 @@ input::-webkit-inner-spin-button {
 }
 
 input {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 24px;
   padding: 10px;
   border-radius: 5px;
@@ -91,6 +91,19 @@ input {
 
 input:focus {
   box-shadow: 0 0 0 2px var(--strong-cyan);
+}
+
+.input-zero, .input-zero:focus {
+  box-shadow: 0 0 0 2px rgb(235, 53, 53);
+}
+
+.notZero {
+  display: none;
+}
+
+.zero {
+  display: block;
+  color: rgb(235, 53, 53) !important;
 }
 
 .custom-input {
@@ -118,7 +131,7 @@ input:focus {
 }
 
 .grid-container {
-  margin-bottom: 20px;
+  margin-bottom: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;  
@@ -154,6 +167,10 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.options-container .flex-row {
+  margin-top: 10px;
 }
 
 .amount-letters p {

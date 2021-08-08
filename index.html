@@ -20,7 +20,7 @@
   <div class="container">
     <div class="options-container">
       <p>Bill</p>      
-      <input  placeholder="0" id="inputBill">
+      <input type="text" placeholder="0" id="inputBill">
                 
       <p>Select Tip %</p>
       <div class="grid-container">
@@ -29,11 +29,14 @@
         <button name="item" class="item" value="15">15%</button>
         <button name="item" class="item" value="25">25%</button>
         <button name="item" class="item" value="50">50%</button>          
-        <input type="number" placeholder="Custom" class="custom-input">
+        <input type="number" placeholder="Custom" class="custom-input" id="customInput">
       </div>
 
-      <p>Number of People</p>            
-      <input type="text" inputmode="numeric" id="inputPersons" placeholder="0">
+      <div class="flex-row">
+        <p>Number of People</p>            
+        <p id="alertZero" class="notZero">Can't be zero</p>        
+      </div>
+      <input type="text" id="inputPersons" placeholder="0">
     </div>
 
     <div class="output-container">    
@@ -62,7 +65,7 @@
         </div>
       </div>  
         
-      <button>
+      <button id="resetButton">
         RESET
       </button>      
     </div>
