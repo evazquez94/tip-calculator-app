@@ -81,7 +81,7 @@ input {
   background-image: url("./images/icon-person.svg");
   background-repeat:no-repeat;
   background-position: 20px 20px;
-  caret-color: transparent;
+  caret-color: var(--dark-grayish-cyan);
   outline: none;  
 }
 
@@ -153,6 +153,11 @@ input:focus {
   background-color: var(--light-grayish-cyan);
 }
 
+.button-clicked {
+  color: var(--very-dark-cyan);
+  background-color: var(--lighter-grayish-cyan);      
+}
+
 .output-container {  
   display: flex;
   flex-direction: column;
@@ -184,11 +189,12 @@ input:focus {
 
 .amount-numbers {
   display: flex;   
+  justify-content: space-between;
 }
 
-/* .amount-numbers img {
-  font-size: 24px;
-} */
+.amount-numbers img {
+  filter: invert(51%) sepia(89%) saturate(360%) hue-rotate(122deg) brightness(105%) contrast(90%);
+}
 
 .amount-numbers p { 
   color: var(--strong-cyan);
@@ -209,12 +215,11 @@ button {
   outline: none;
 }
 
-.button-clicked {
-  color: var(--very-dark-cyan);
-  background-color: var(--lighter-grayish-cyan);      
+button:hover {  
+  background-color: var(--light-grayish-cyan);
 }
 
-button:hover {  
+.button-disabled, .button-disabled:hover {
   color: var(--very-dark-cyan);
-  background-color: var(--light-grayish-cyan);
+  background-color: var(--darker-grayish-cyan);
 }

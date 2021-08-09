@@ -7,32 +7,28 @@ let resetButton = document.getElementById('resetButton');
 let alertZeroParagraph = document.getElementById('alertZero');
 let customInput = document.getElementById('customInput');
 
-// TODO destructure?
-let bill = 0;
-let persons = 0;
-let percent = 0;
+[bill, persons, percent] = [0, 0, 0];
 
-resetButton.addEventListener('click', resetHandler);
-function resetHandler() {
+resetButton.addEventListener('click', function() {
   billInput.value = '';
   amountPersonsInput.value = '';
   customInput.value = '';
   tipAmountTag.innerHTML = '0.00';
   totalTag.innerHTML = '0.00'; 
+  alertZeroParagraph.className = 'notZero';
+  amountPersonsInput.className = '';  
+  this.className = 'button-disabled';
   bill = 0;
   persons = 0;
   percent = 0;
   for(let i = 0; i < buttonPercentArr.length; i++) {    
     buttonPercentArr[i].className = 'item';
   }
-  alertZeroParagraph.className = 'notZero';
-  amountPersonsInput.className = ''; 
-}
+});
 
-billInput.addEventListener('input', changeBillHandler);
-function changeBillHandler() {
+billInput.addEventListener('input', function() {
+  resetButton.className = '';
   bill = this.value;  
-  
   // Prevent letters inputs
   if(isNaN(bill)) {
     this.value = "";
@@ -40,12 +36,11 @@ function changeBillHandler() {
   }
 
   if((persons > 0) && (percent)) computeTip(percent);
-}
+});
 
-amountPersonsInput.addEventListener('input', changePersonsHandler);
-function changePersonsHandler() {
+amountPersonsInput.addEventListener('input', function() {
+  resetButton.className = '';
   persons = this.value; 
-  
   // Prevent letters inputs
   if(isNaN(persons)) {
     this.value = "";
@@ -58,29 +53,23 @@ function changePersonsHandler() {
   } else {
     alertZeroParagraph.className = 'zero';
     amountPersonsInput.className = 'input-zero';
+    tipAmountTag.innerHTML = '0.00';
+    totalTag.innerHTML = '0.00';
   }
 
   if((persons > 0) && (percent)) computeTip(percent);
-}
-
-// Cycle to assign to all percent squares elements onclick handler function
-for(let i = 0; i < buttonPercentArr.length; i++) {
-  buttonPercentArr[i].onclick = handleTipClick;
-}
+});
 
 function handleTipClick() {
+  resetButton.className = '';
   if (this.className == 'button-clicked') {
-
     this.className = 'item';
     tipAmountTag.innerHTML = '0.00';
     totalTag.innerHTML = '0.00'; 
     percent = customInput.value || 0;
-    console.log(customInput.value);
-    console.log(percent);
     if((persons > 0) && (percent)) computeTip(percent);
-
+  
   } else {
-    // TODO Map function instead of for loop?
     for(let i = 0; i < buttonPercentArr.length; i++) {    
       buttonPercentArr[i].className = 'item';
     }
@@ -90,33 +79,43 @@ function handleTipClick() {
   }
 }
 
-customInput.addEventListener('input', function() {  
-  percent = this.value;
+// Cycle to assign to all percent squares elements onclick handler function
+for(let i = 0; i < buttonPercentArr.length; i++) {
+  buttonPercentArr[i].onclick = handleTipClick;
+}
+
+customInput.addEventListener('input', function() {
+  resetButton.className = '';
   min = 0;
   max = 100;
 
-  this.value = Math.max(percent, min);
-  this.value = Math.min(percent, max);
+  if(this.value > 100) {
+    this.value = Math.max(percent, min);
+    this.value = Math.min(percent, max);
+    return;
+  };
 
+  percent = this.value;
+  // Prevent letters inputs
+  if(isNaN(percent)) {
+    this.value = "";
+    return;
+  }
+  
   if(persons > 0) computeTip(percent);    
 });
-
 
 function computeTip(percent) {  
   // Prevent 0/0 division
   if((!persons) || (!bill)) return;
-  
-  // Todo put the variables declaration in the top of the page
+    
   let tipPercent = percent / 100;
   let tipAmount = bill/persons * tipPercent;
   let tipTotal = bill/persons + tipAmount;
    
   // Todo check the '+'
-  tipAmount = +tipAmount.toFixed(2);
-  tipTotal = +tipTotal.toFixed(2);
+  tipAmount = tipAmount.toFixed(2);
+  tipTotal = tipTotal.toFixed(2);
   tipAmountTag.innerHTML = tipAmount;
   totalTag.innerHTML = tipTotal; 
 }
-
-
-//Todo button disabled when reset or initial state
