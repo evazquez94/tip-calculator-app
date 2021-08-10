@@ -195,9 +195,12 @@ input:focus {
 .amount-numbers {
   display: flex;   
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .amount-numbers img {
+  width: 24px;
+  height: 44px;
   filter: invert(51%) sepia(89%) saturate(360%) hue-rotate(122deg) brightness(105%) contrast(90%);
 }
 
@@ -235,10 +238,7 @@ button:hover {
 
 @media (max-width: 1300px) {
   body {
-    /* display: block; */
-    /* flex-direction: column; */
     justify-content: flex-start;  
-    /* height: 90vh; */
   }
 
   .logo {
@@ -259,5 +259,19 @@ button:hover {
 @media (max-width: 650px) {
   .container {
     width: 100%;
+  }
+
+  input, button, .item {    
+    font-size: 17px;
+  }
+
+  .amount-numbers p { 
+    font-size: 30px;
+    margin-top: -12px;
+  }
+
+  .amount-numbers img {
+    width: 13px;
+    height: 23px;
   }
 }
